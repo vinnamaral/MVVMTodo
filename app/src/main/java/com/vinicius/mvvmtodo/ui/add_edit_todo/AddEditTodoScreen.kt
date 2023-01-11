@@ -60,7 +60,7 @@ fun AddEditTodoScreen(
                 },
                 modifier = Modifier.fillMaxWidth()
             )
-            Spacer(modifier = Modifier.height(8.dp)),
+            Spacer(modifier = Modifier.height(8.dp))
             TextField(
                 value = viewModel.description,
                 onValueChange = {

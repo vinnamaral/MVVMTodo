@@ -1,7 +1,7 @@
 package com.vinicius.mvvmtodo
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -12,10 +12,10 @@ import com.vinicius.mvvmtodo.ui.add_edit_todo.AddEditTodoScreen
 import com.vinicius.mvvmtodo.ui.theme.MVVMTodoAppTheme
 import com.vinicius.mvvmtodo.ui.todo_list.TodoListScreen
 import com.vinicius.mvvmtodo.util.Routes
-import dagger.hilt.EntryPoint
+import dagger.hilt.android.AndroidEntryPoint
 
-@EntryPoint
-class MainActivity : AppCompatActivity() {
+@AndroidEntryPoint
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -41,7 +41,9 @@ class MainActivity : AppCompatActivity() {
                             }
                         )
                     ) {
-
+                        AddEditTodoScreen(onPopBackStack = {
+                            navController.popBackStack()
+                        })
                     }
                 }
             }
